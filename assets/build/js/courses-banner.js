@@ -219,9 +219,7 @@ var BannerContent = function BannerContent(props) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _sass_courses_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../sass/courses.scss */ "./sass/courses.scss");
-/* harmony import */ var _sass_courses_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_sass_courses_scss__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _banner_content__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./banner-content */ "./js/blocks/courses-banner/banner-content.js");
+/* harmony import */ var _banner_content__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./banner-content */ "./js/blocks/courses-banner/banner-content.js");
 /**
  * Register Latest Issues Block
  *
@@ -237,7 +235,6 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Internal dependencies
  */
-
 
 var __ = wp.i18n.__;
 var registerBlockType = wp.blocks.registerBlockType;
@@ -277,7 +274,7 @@ registerBlockType('codeytek-blocks/courses-banner', {
   edit: function edit(props) {
     var attributes = props.attributes,
         setAttributes = props.setAttributes;
-    return React.createElement(_banner_content__WEBPACK_IMPORTED_MODULE_1__["BannerContent"], {
+    return React.createElement(_banner_content__WEBPACK_IMPORTED_MODULE_0__["BannerContent"], {
       attributes: attributes,
       setAttributes: setAttributes,
       edit: true
@@ -291,7 +288,7 @@ registerBlockType('codeytek-blocks/courses-banner', {
    * @return {Object} Content
    */
   save: function save(props) {
-    return React.createElement(_banner_content__WEBPACK_IMPORTED_MODULE_1__["BannerContent"], {
+    return React.createElement(_banner_content__WEBPACK_IMPORTED_MODULE_0__["BannerContent"], {
       attributes: props.attributes,
       setAttributes: false,
       edit: false
@@ -1493,17 +1490,6 @@ return purify;
 })));
 //# sourceMappingURL=purify.js.map
 
-
-/***/ }),
-
-/***/ "./sass/courses.scss":
-/*!***************************!*\
-  !*** ./sass/courses.scss ***!
-  \***************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
 
 /***/ })
 

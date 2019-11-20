@@ -4,8 +4,6 @@
  * @package codeytek-blocks
  */
 
-import '../../../sass/courses.scss';
-
 
 /**
  * Register Stats Block
