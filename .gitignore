@@ -1,0 +1,41 @@
+# IDE related files
+.idea/
+# Debug plugins
+plugins/log-deprecated-notices
+plugins/monster-widget
+plugins/query-monitor
+plugins/user-switching
+
+# Uploads directory
+uploads
+
+# mu-plugins; these are managed at the platform-level
+mu-plugins
+
+# drop-ins; these are managed at the platform-level
+object-cache.php
+db.php
+
+#node modules
+themes/codeytek-newslinks/node_modules
+
+# Ignore temporary OS files
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+debug.log
+
+# Log files
+*.log
+
+# Build artifact
+.grunt
+# local
+node_modules
+
+#Other files and folders
+*.map
+
