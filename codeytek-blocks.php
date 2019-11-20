@@ -2,8 +2,8 @@
 /**
  * Plugin Name: CODEYTEK Blocks
  * Description: Gutenberg blocks for codeytek.org
- * Plugin URI:  https://www.codeytek.org
- * Author:      rtCamp
+ * Plugin URI:  https://www.codeytek.com
+ * Author:      Imran Sayed
  * Author URI:  https://rtcamp.com
  * License:     GPL2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html

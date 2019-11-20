@@ -81,15 +81,15 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./js/blocks/latest-issues/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./js/blocks/courses/index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./js/blocks/latest-issues/index.js":
-/*!******************************************!*\
-  !*** ./js/blocks/latest-issues/index.js ***!
-  \******************************************/
+/***/ "./js/blocks/courses/index.js":
+/*!************************************!*\
+  !*** ./js/blocks/courses/index.js ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -108,55 +108,56 @@ var _wp$components = wp.components,
     Button = _wp$components.Button,
     SelectControl = _wp$components.SelectControl,
     PanelBody = _wp$components.PanelBody;
-registerBlockType('codeytek-blocks/banner', {
+registerBlockType("codeytek-blocks/banner", {
   /**
    * Block title.
    *
    * @member {string}
    */
-  title: __('Courses Main Banner', 'codeytek-blocks'),
+  title: __("Courses Main Banner", "codeytek-blocks"),
 
   /**
    * Block Category
    *
    * @member {string}
    */
-  category: 'codeytek-custom-blocks',
+  category: "codeytek-custom-blocks",
 
   /**
    * Add attributes to props
    */
   attributes: {
     mediaID: {
-      type: 'number'
+      type: "number"
     },
     mediaURL: {
-      type: 'string',
-      source: 'attribute',
-      selector: 'img',
-      attribute: 'src'
+      type: "string",
+      source: "attribute",
+      selector: "img",
+      attribute: "src"
     },
     description: {
-      type: 'array',
-      source: 'children',
-      selector: '.codeytek-latest-issue__description-input'
+      type: "array",
+      source: "children",
+      selector: ".codeytek-courses__description-input",
+      "default": __("helo", "codeytek-blocks")
     },
     linkText: {
-      type: 'array',
-      source: 'children',
-      selector: '.codeytek-latest-issue__link-input',
-      "default": __('Go to latest issue', 'codeytek-blocks')
+      type: "array",
+      source: "children",
+      selector: ".codeytek-courses__link-input",
+      "default": __("Go to latest issue", "codeytek-blocks")
     },
     postType: {
-      type: 'string',
-      source: 'attribute',
-      selector: '.codeytek-latest-issue__select'
+      type: "string",
+      source: "attribute",
+      selector: ".codeytek-courses__select"
     },
     postPermalink: {
-      type: 'string',
-      source: 'attribute',
-      attribute: 'href',
-      selector: '.codeytek-latest-issue__button'
+      type: "string",
+      source: "attribute",
+      attribute: "href",
+      selector: ".codeytek-courses__button"
     }
   },
 
@@ -178,27 +179,12 @@ registerBlockType('codeytek-blocks/banner', {
         postType = _props$attributes.postType,
         postPermalink = _props$attributes.postPermalink;
     /**
-     * Update media info on media select.
-     *
-     * @param {Object} media Media.
-     *
-     * @return {void} Null.
-     */
-
-    var onSelectImage = function onSelectImage(media) {
-      setAttributes({
-        mediaURL: media.url,
-        mediaID: media.id
-      });
-    };
-    /**
      * Update user entered description
      *
      * @param {string} value Description value.
      *
      * @return {void} Null.
      */
-
 
     var onChangeDescription = function onChangeDescription(value) {
       setAttributes({
@@ -219,73 +205,18 @@ registerBlockType('codeytek-blocks/banner', {
         linkText: value
       });
     };
-    /**
-     * Prevent default click of the button.
-     *
-     * @param {Object} event Event.
-     *
-     * @return {void} Null.
-     */
-
-
-    var onButtonClick = function onButtonClick(event) {
-      event.preventDefault();
-    };
-    /**
-     * Update user selected post type.
-     *
-     * @param {string} value Post type value.
-     *
-     * @return {void} Null.
-     */
-
-
-    var onPostTypeSelect = function onPostTypeSelect(value) {
-      if (!mbaJsData.site_url) {
-        return;
-      } // Set Post Permalink to postType attribute.
-
-
-      setPostPermalink(value, setAttributes);
-    };
 
     return React.createElement("div", {
       className: className
     }, React.createElement("div", {
-      className: "codeytek-latest-issue"
-    }, React.createElement(MediaUpload, {
-      onSelect: onSelectImage,
-      allowedTypes: "image",
-      value: mediaID,
-      render: function render(_ref) {
-        var open = _ref.open;
-        return React.createElement(Button, {
-          className: mediaID ? 'image-button' : 'button button-large',
-          onClick: open
-        }, !mediaID ? __('Upload Image', 'codeytek-blocks') : React.createElement("img", {
-          src: mediaURL,
-          className: "codeytek-latest-issue__image",
-          alt: __('Upload Mba link image', 'codeytek-blocks')
-        }));
-      }
-    }), React.createElement(RichText, {
+      className: "codeytek-courses"
+    }, React.createElement(RichText, {
       tagName: "div",
-      placeholder: __('Description', 'codeytek-blocks'),
+      placeholder: __("Description", "codeytek-blocks"),
       value: description,
       onChange: onChangeDescription,
-      className: "codeytek-latest-issue__description-input codeytek-latest-issue__description-input--description"
-    }), React.createElement(Button, {
-      href: postPermalink,
-      placeholder: __('Go to current issue', 'codeytek-blocks'),
-      onClick: onButtonClick,
-      className: "codeytek-latest-issue__button"
-    }, React.createElement(RichText, {
-      tagName: "span",
-      placeholder: __('Go to current issue', 'codeytek-blocks'),
-      value: linkText,
-      onChange: onChangeLinkText,
-      className: "codeytek-latest-issue__link-input"
-    }))));
+      className: "codeytek-courses__description-input codeytek-courses__description-input--description"
+    })));
   },
 
   /**
@@ -305,27 +236,16 @@ registerBlockType('codeytek-blocks/banner', {
     return React.createElement("div", {
       className: className
     }, React.createElement("div", {
-      className: "codeytek-latest-issue"
-    }, mediaURL && React.createElement("img", {
-      className: "codeytek-latest-issue__image",
-      src: mediaURL,
-      alt: __('Latest Issue Image', 'codeytek-blocks')
-    }), React.createElement(RichText.Content, {
-      tagName: "div",
-      className: "codeytek-latest-issue__description-input",
-      value: description
-    }), React.createElement("a", {
-      href: postPermalink,
-      className: "codeytek-latest-issue__button"
+      className: "codeytek-courses"
     }, React.createElement(RichText.Content, {
-      tagName: "span",
-      className: "codeytek-latest-issue__link-input",
-      value: linkText ? linkText : 'Go to Current Issue'
-    }))));
+      tagName: "div",
+      className: "codeytek-courses__description-input",
+      value: description
+    })));
   }
 });
 
 /***/ })
 
 /******/ });
-//# sourceMappingURL=latest-issues.js.map
+//# sourceMappingURL=courses.js.map
