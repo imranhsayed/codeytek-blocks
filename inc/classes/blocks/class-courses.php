@@ -44,14 +44,6 @@ class Courses {
 	 */
 	public function register_block() {
 
-		// Block front end and editor styles.
-		wp_register_style(
-			'codeytek-block-courses-banner-styles',
-			CODEYTEK_BLOCKS_BUILD_URL . '/css/courses-banner.css',
-			[ 'wp-edit-blocks' ],
-			filemtime( CODEYTEK_BLOCKS_BUILD_PATH . '/css/courses-banner.css' )
-		);
-
 		// Block Editor Script.
 		wp_register_script(
 			'codeytek-block-courses-banner-editor-js',
@@ -69,8 +61,6 @@ class Courses {
 		register_block_type(
 			'codeytek-blocks/courses-banner',
 			[
-				'style'         => 'codeytek-block-courses-banner-styles',
-				'editor_style'  => 'codeytek-block-courses-banner-styles',
 				'editor_script' => 'codeytek-block-courses-banner-editor-js',
 			]
 		);

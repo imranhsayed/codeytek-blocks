@@ -9,6 +9,7 @@ namespace CODEYTEK\Blocks\Inc;
 
 use CODEYTEK\Blocks\Inc\Blocks\Add_Categories;
 use CODEYTEK\Blocks\Inc\Blocks\Courses;
+use CODEYTEK\Blocks\Inc\Blocks\Enqueue;
 use \CODEYTEK\Blocks\Inc\Traits\Singleton;
 
 
@@ -28,7 +29,7 @@ class Blocks {
 
 		Add_Categories::get_instance();
 		Courses::get_instance();
-
+		Enqueue::get_instance();
 	}
 
 }
