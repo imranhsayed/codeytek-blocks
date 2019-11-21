@@ -1,8 +1,6 @@
 {
+  "courses-banner.css": "css/courses-banner.css",
+  "courses-banner.css.map": "css/courses-banner.css.map",
   "courses-banner.js": "js/courses-banner.js",
-  "courses-banner.js.map": "js/courses-banner.js.map",
-  "courses.css": "css/courses.css",
-  "courses.css.map": "css/courses.css.map",
-  "courses.js": "js/courses.js",
-  "courses.js.map": "js/courses.js.map"
+  "courses-banner.js.map": "js/courses-banner.js.map"
 }

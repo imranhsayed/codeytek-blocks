@@ -52,6 +52,16 @@ class Courses {
 			filemtime( CODEYTEK_BLOCKS_BUILD_PATH . '/js/courses-banner.js' )
 		);
 
+		// Courses Content
+				
+				wp_register_script(
+					'mba-block-newsletter-primary-news-editor-js',
+					MBA_BLOCKS_BUILD_URL . '/js/newsletter/child-blocks/news.js',
+					[ 'wp-blocks', 'wp-element', 'wp-editor', 'wp-components', 'wp-i18n' ],
+					filemtime( MBA_BLOCKS_BUILD_PATH . '/js/newsletter/child-blocks/news.js' ),
+					true
+				);
+
 		wp_localize_script(
 			'codeytek-block-courses-banner-editor-js',
 			'mbaJsData',

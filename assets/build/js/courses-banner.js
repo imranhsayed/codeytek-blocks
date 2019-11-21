@@ -110,102 +110,50 @@ var RichText = wp.editor.RichText;
  */
 
 
-var footerWrapStyle = {
-  display: 'block',
-  marginTop: '60px',
-  textDecoration: 'none'
-};
-var parentContainerStyle = {
-  backgroundColor: '#353535',
-  borderLeft: '1px solid #eee',
-  borderRight: '1px solid #eee',
-  borderTopStyle: 'hidden',
-  borderBottomStyle: 'hidden',
-  color: '#ccc',
-  fontFamily: 'Arial,sans-serif',
-  fontSize: '14px',
-  lineHeight: '21px',
-  padding: '40px',
-  marginTop: '60px'
-};
-var footerTableStyle = {
-  borderStyle: 'hidden',
-  borderCollapse: 'collapse'
-};
-var footerMainHeadingStyle = {
-  padding: '0 0 20px',
-  color: '#eee',
-  fontFamily: 'Arial,sans-serif',
-  fontSize: '14px',
-  fontWeight: 'bold',
-  lineHeight: '16px',
-  textAlign: 'left',
-  textTransform: 'uppercase'
-};
-var footerDescriptionStyle = {
-  padding: '0 0 20px',
-  color: '#ccc',
-  fontFamily: 'Arial,sans-serif',
-  fontSize: '14px',
-  lineHeight: '21px'
-};
 var BannerContent = function BannerContent(props) {
   var _props$attributes = props.attributes,
       footerHeading = _props$attributes.footerHeading,
       aboutMbaNewsLink = _props$attributes.aboutMbaNewsLink,
       setAttributes = props.setAttributes,
       edit = props.edit;
-  return React.createElement("tr", {
-    style: footerWrapStyle,
-    className: "mba-newsletter__footer"
-  }, React.createElement("td", {
-    colSpan: "2",
-    align: "center",
-    style: parentContainerStyle
-  }, React.createElement("table", {
-    width: "100%",
-    border: "0",
-    align: "center",
-    cellPadding: "0",
-    cellSpacing: "0",
-    style: footerTableStyle
-  }, React.createElement("tbody", null, React.createElement("tr", null, edit ? React.createElement("td", {
-    style: footerMainHeadingStyle
-  }, React.createElement(RichText, {
-    placeholder: __('Enter Heading...', 'mba-blocks'),
-    value: footerHeading,
-    onChange: function onChange(value) {
-      return setAttributes({
-        footerHeading: value
-      });
-    },
-    className: "mba-newsletter__footer-title",
-    inlineToolbar: true
-  })) : React.createElement("td", {
-    style: footerMainHeadingStyle,
-    dangerouslySetInnerHTML: {
-      __html: dompurify__WEBPACK_IMPORTED_MODULE_0___default.a.sanitize(footerHeading)
-    }
-  }) // phpcs:ignore WordPressVIPMinimum.JS.DangerouslySetInnerHTML.Found
-  ), React.createElement("tr", null, edit ? React.createElement("td", {
-    style: footerDescriptionStyle
-  }, React.createElement(RichText, {
-    placeholder: __('Enter about mba...', 'mba-blocks'),
-    value: aboutMbaNewsLink,
-    onChange: function onChange(value) {
-      return setAttributes({
-        aboutMbaNewsLink: value
-      });
-    },
-    className: "mba-newsletter__footer-about-mba-newslink",
-    inlineToolbar: true
-  })) : React.createElement("td", {
-    style: footerDescriptionStyle,
-    dangerouslySetInnerHTML: {
-      __html: dompurify__WEBPACK_IMPORTED_MODULE_0___default.a.sanitize(aboutMbaNewsLink)
-    }
-  }) // phpcs:ignore WordPressVIPMinimum.JS.DangerouslySetInnerHTML.Found
-  )))));
+  return (//   Title
+    React.createElement("div", {
+      "class": "codeytek-main-banner-block"
+    }, edit ? React.createElement("div", {
+      "class": "codeytek-main-banner-block__title"
+    }, React.createElement(RichText, {
+      placeholder: __("Enter Heading...", "mba-blocks"),
+      value: footerHeading,
+      onChange: function onChange(value) {
+        return setAttributes({
+          footerHeading: value
+        });
+      },
+      className: "mba-newsletter__footer-title",
+      inlineToolbar: true
+    })) : React.createElement("div", {
+      "class": "codeytek-main-banner-block__title",
+      dangerouslySetInnerHTML: {
+        __html: dompurify__WEBPACK_IMPORTED_MODULE_0___default.a.sanitize(footerHeading)
+      }
+    }) // phpcs:ignore WordPressVIPMinimum.JS.DangerouslySetInnerHTML.Found
+    , edit ? React.createElement("div", null, React.createElement(RichText, {
+      placeholder: __("Enter about mba...", "mba-blocks"),
+      value: aboutMbaNewsLink,
+      onChange: function onChange(value) {
+        return setAttributes({
+          aboutMbaNewsLink: value
+        });
+      },
+      className: "mba-newsletter__footer-about-mba-newslink",
+      inlineToolbar: true
+    })) : React.createElement("div", {
+      dangerouslySetInnerHTML: {
+        __html: dompurify__WEBPACK_IMPORTED_MODULE_0___default.a.sanitize(aboutMbaNewsLink)
+      }
+    }) // phpcs:ignore WordPressVIPMinimum.JS.DangerouslySetInnerHTML.Found
+    )
+  );
 };
 
 /***/ }),
@@ -239,17 +187,17 @@ __webpack_require__.r(__webpack_exports__);
 var __ = wp.i18n.__;
 var registerBlockType = wp.blocks.registerBlockType;
 var aboutMbaNewsLink = 'MBA NewsLink, a daily electronic publication, is a member benefit free to employees of MBA member companies, and available by paid subscription to non-members. For membership information <a href="https://www.mba.org/" style="color: #dbad64; text-decoration: none;" target="_blank" rel="noopener noreferrer">click here</a>.';
-registerBlockType('codeytek-blocks/courses-banner', {
-  title: __('Codeytek Main banner', 'codeytek-blocks'),
-  category: 'codeytek-custom-blocks',
-  icon: 'archive',
+registerBlockType("codeytek-blocks/courses-banner", {
+  title: __("Codeytek Main banner", "codeytek-blocks"),
+  category: "codeytek-custom-blocks",
+  icon: "archive",
   attributes: {
     footerHeading: {
-      type: 'string',
-      "default": __('ABOUT MBA NEWSLINK', 'mba-blocks')
+      type: "string",
+      "default": __("ABOUT MBA NEWSLINK", "mba-blocks")
     },
     aboutMbaNewsLink: {
-      type: 'string',
+      type: "string",
       "default": aboutMbaNewsLink
     }
   },
@@ -261,7 +209,7 @@ registerBlockType('codeytek-blocks/courses-banner', {
    */
   getEditWrapperProps: function getEditWrapperProps() {
     return {
-      'data-align': 'wide'
+      "data-align": "wide"
     };
   },
 

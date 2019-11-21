@@ -63,6 +63,8 @@ class Enqueue {
 	 */
 	public function backend_scripts( $hook ) {
 
+		$allowed_hooks = [ 'post.php', 'post-new.php' ];
+		
 		// Block front end and editor styles.
 		wp_register_style(
 			'codeytek-block-courses-backend-styles',
@@ -71,7 +73,8 @@ class Enqueue {
 			filemtime( CODEYTEK_BLOCKS_BUILD_PATH . '/css/courses.css' )
 		);
 
-		if ( 'post-new.php' === $hook ) {
+		if ( in_array( $hook, $allowed_hooks ) ) {
+			
 			wp_enqueue_style( 'codeytek-block-courses-backend-styles' );
 		}
 
