@@ -9,7 +9,6 @@ const { __ } = wp.i18n;
 /**
  * Internal dependencies
  */
-import { NewsSelectCheckbox } from '../blocks/newsletter/child-blocks/news-roll/NewsSelectCheckbox';
 
 /**
  * Get the latest post for the given postType and set the postPermalink value.
@@ -21,7 +20,7 @@ import { NewsSelectCheckbox } from '../blocks/newsletter/child-blocks/news-roll/
  */
 export const setPostPermalink = ( postType, setAttributes ) => {
 
-	fetch( `${ newsLetterData.site_url }/wp-json/wp/v2/${ postType }` )
+	fetch( `${ codeytekData.site_url }/wp-json/wp/v2/${ postType }` )
 		.then( ( response ) => {
 
 			if ( 200 !== response.status ) {
@@ -258,44 +257,6 @@ export const getMonthName = ( monthNo ) => {
 export const getWeekDayName = ( dayNo ) => {
 	const weekday = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ];
 	return weekday[ dayNo ];
-};
-
-/**
- * Get child post selection checkboxes
- *
- * @param {Array} childPostIds Child posts ids.
- * @param {Object} onPostSelect onPostSelect function.
- * @param {Array} postSelectionOptions postSelectionOptions array of objects containing their postId and isChecked properties.
- *
- * @return {Object} checkBoxes Checkboxes
- */
-export const getChildPostSelectionCheckBoxes = ( childPostIds, onPostSelect, postSelectionOptions ) => {
-
-	let checkBoxes = '';
-	if ( childPostIds.length ) {
-		checkBoxes = (
-			<div className="mba-newsroll-select">
-				<div className="components-base-control__label mba-newsroll-select__label">{ __( 'Select News', 'mba-blocks' ) }</div>
-				<div className="mba-newsroll-select__items-wrap">
-					{ childPostIds.map( ( post, index ) => {
-						return (
-							<NewsSelectCheckbox
-								id={ post.postId.toString() }
-								label={ post.postTitle }
-								className="components-checkbox-control__input"
-								type="checkbox"
-								value={ post.postId.toString() }
-								onChange={ onPostSelect }
-								checked={ postSelectionOptions[ index ].isChecked }
-							/>
-						);
-					} ) }
-				</div>
-			</div>
-		);
-	}
-
-	return checkBoxes;
 };
 
 /**

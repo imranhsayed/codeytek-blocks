@@ -7,7 +7,7 @@
 /**
  * Internal dependencies
  */
-import { setPostData } from '../../../../utility/functions';
+import { setPostData } from '../../utility/functions';
 
 const { __ } = wp.i18n;
 const { Component } = wp.element;
@@ -15,7 +15,7 @@ const { Fragment } = wp.element;
 const { InspectorControls, ServerSideRender } = wp.editor;
 const { PanelBody, SelectControl, CheckboxControl } = wp.components;
 const { select } = wp.data;
-import { parseString } from './../../../../utility/functions';
+import { parseString } from './../../utility/functions';
 
 /**
  * Edit class component for News block
@@ -48,7 +48,7 @@ class Edit extends Component {
 		const postType = select( 'core/editor' ).getEditedPostAttribute( 'type' );
 		const currentPostId = select( 'core/editor' ).getCurrentPostId();
 
-		fetch( `${ newsLetterData.site_url }/wp-json/wp/v2/${ postType }?parent=${ currentPostId }&per_page=50` )
+		fetch( `${ codeytekJsData.site_url }/wp-json/wp/v2/${ postType }?parent=${ currentPostId }&per_page=50` )
 			.then( ( response ) => {
 
 				if ( 200 !== response.status ) {

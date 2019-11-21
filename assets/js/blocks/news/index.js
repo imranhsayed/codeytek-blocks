@@ -1,7 +1,7 @@
 /**
  * Register News Block.
  *
- * @package mba-blocks
+ * @package codeytek-blocks
  */
 
 /**
@@ -12,9 +12,9 @@ import Edit from './edit';
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 
-registerBlockType( 'mba-blocks/newsletter-primary-news', {
-	title: __( 'News Block', 'mba-blocks' ),
-	category: 'mba-newsletter',
+registerBlockType( 'codeytek-blocks/newsletter-primary-news', {
+	title: __( 'News Block', 'codeytek-blocks' ),
+	category: 'codeytek-custom-blocks',
 	icon: 'media-spreadsheet',
 
 	attributes: {

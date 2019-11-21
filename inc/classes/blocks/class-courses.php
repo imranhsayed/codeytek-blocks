@@ -53,18 +53,18 @@ class Courses {
 		);
 
 		// Courses Content
-				
-				wp_register_script(
-					'mba-block-newsletter-primary-news-editor-js',
-					MBA_BLOCKS_BUILD_URL . '/js/newsletter/child-blocks/news.js',
-					[ 'wp-blocks', 'wp-element', 'wp-editor', 'wp-components', 'wp-i18n' ],
-					filemtime( MBA_BLOCKS_BUILD_PATH . '/js/newsletter/child-blocks/news.js' ),
-					true
-				);
+
+		wp_register_script(
+			'mba-block-newsletter-primary-news-editor-js',
+			CODEYTEK_BLOCKS_BUILD_URL . '/js/news.js',
+			[ 'wp-blocks', 'wp-element', 'wp-editor', 'wp-components', 'wp-i18n' ],
+			filemtime( CODEYTEK_BLOCKS_BUILD_PATH . '/js/news.js' ),
+			true
+		);
 
 		wp_localize_script(
 			'codeytek-block-courses-banner-editor-js',
-			'mbaJsData',
+			'codeytekJsData',
 			[ 'site_url' => get_home_url() ]
 		);
 
@@ -74,6 +74,38 @@ class Courses {
 				'editor_script' => 'codeytek-block-courses-banner-editor-js',
 			]
 		);
+
+		// Register 'Primary News'.
+		register_block_type(
+			'codeytek-blocks/newsletter-primary-news',
+			[
+				'editor_script'   => 'mba-block-newsletter-primary-news-editor-js',
+				'render_callback' => [ $this, 'newsletter_primary_news_callback' ],
+				'attributes'      => [
+					'postId'               => [
+						'type'    => 'string',
+						'default' => '',
+					],
+					'isFeaturedImgChecked' => [
+						'type'    => 'boolean',
+						'default' => 'false',
+					],
+				],
+			]
+		);
+	}
+
+	/**
+	 * Render Callback from Primary news block.
+	 *
+	 * @param array $attributes Attributes.
+	 *
+	 * @return string
+	 */
+	public function newsletter_primary_news_callback( $attributes ) {
+
+		return mba_blocks_render_template( 'block-templates/newsletter/primary-news', [ 'attributes' => $attributes ] );
+
 	}
 
 }
